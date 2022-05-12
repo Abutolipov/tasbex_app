@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 class DeterminatePage extends StatefulWidget {
   DeterminatePage({Key key}) : super(key: key);
-  static const id="id_determain";
+  static const id="/id_determain";
   @override
   _DeterminatePageState createState() => _DeterminatePageState();
 }
@@ -18,8 +18,7 @@ class _DeterminatePageState extends State<DeterminatePage> {
    method(){
     setState(() {
       progressValue++;
-      if(progressValue==max1){
-       print("teng boldi");
+      if(progressValue>=max1){
        progressValue=0;
       }
     });
@@ -27,8 +26,9 @@ class _DeterminatePageState extends State<DeterminatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: PreferredSize(
-            child: ClipPath(
+            child:ClipPath(
               clipper: CustomAppBarShape(),
               child: Container(color: Colors.green[700], child: Column(
                 children: <Widget>[
@@ -39,21 +39,23 @@ class _DeterminatePageState extends State<DeterminatePage> {
                     Column(
                       children: [
                         Container(padding: EdgeInsets.only(left: 25,top: 80),
-                            child: Text("Tasbih",style:TextStyle(color:Colors.white,fontSize: 25,fontWeight: FontWeight.bold),)),
+                            child: Text("Tasbih",style:TextStyle(color:Colors.white,
+                                fontSize: 25,fontWeight: FontWeight.bold),)),
                         Container(
                             constraints: BoxConstraints.expand(width: 100,height: 70),
                             padding: EdgeInsets.only(left: 25,top: 5),
-                            child: Text("Jami: "+jami.toString(),style:TextStyle(color:Colors.white,fontSize: 16,),)),
+                            child: Text("Jami: "+jami.toString(),style:TextStyle(
+                              color:Colors.white,fontSize: 16,),)),
                       ],
                     ),
                   Container(
-                    margin: EdgeInsets.only(top: 80,left: 160),
+                    margin: EdgeInsets.only(top: 80,left: 150),
                     child: RaisedButton(
                       padding: EdgeInsets.only(left:1, right: 1, top: 5, bottom: 5),
                         color: Colors.white,
                         onPressed: (){
                       setState(() {
-                        if(max1==33){
+                        if(max1==33 ){
                           max1=99;
                           son="99";
                         }else if(max1==99){
@@ -79,9 +81,10 @@ class _DeterminatePageState extends State<DeterminatePage> {
                       ),
                     ],
                   ),
-              ],),),
-            ),
-          preferredSize: Size.fromHeight(kToolbarHeight + 100)
+              ],),),),
+
+          preferredSize: Size.fromHeight(kToolbarHeight + 100),
+          //preferredSize: Size.fromWidth(kToolbarHeight + 100),
       ),
 
         body: Center(
@@ -100,6 +103,9 @@ class _DeterminatePageState extends State<DeterminatePage> {
               ]),
     )] ),
         ),
+      drawer: Drawer(
+
+      ),
 
     );
   }
@@ -131,7 +137,6 @@ class _DeterminatePageState extends State<DeterminatePage> {
                       color: Colors.white,
                       pointerOffset: 0.1,
                       cornerStyle: CornerStyle.bothCurve,
-                      //animationType: AnimationType.linear,
                       sizeUnit: GaugeSizeUnit.factor,
                     )
                   ],
@@ -140,15 +145,19 @@ class _DeterminatePageState extends State<DeterminatePage> {
                         positionFactor: 0.5,
                         widget: Text(progressValue.toStringAsFixed(0),
                             style: const TextStyle(
-                                color: Colors.white,fontSize: 30.0, fontWeight: FontWeight.bold)))
+                                color: Colors.white,fontSize: 30.0,
+                                fontWeight: FontWeight.bold)))
                   ])
             ])),
       ],
     );
   }
 }
+
+
 class CustomAppBarShape extends CustomClipper<Path> {
   @override
+
   getClip(Size size) {
     double height = size.height;
     double width = size.width;
