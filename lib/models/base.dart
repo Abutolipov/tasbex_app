@@ -132,7 +132,7 @@ class _DeterminatePageState extends State<DeterminatePage> {
                     RangePointer(
                       value: progressValue,
                       width: 0.12,
-                      enableAnimation: true,
+                      //enableAnimation: false,
                       animationDuration: a,
                       color: Colors.white,
                       pointerOffset: 0.1,
