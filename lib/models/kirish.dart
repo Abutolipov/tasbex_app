@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'base.dart';
+
 class Kirish extends StatelessWidget {
-  static const id="/kkirr";
+  static const id = "/kkirr";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child:
           SizedBox(child:
-          RaisedButton(onPressed: (){
+          RaisedButton(
+            onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) =>  DeterminatePage()));
           },
             textColor: Colors.white,
