@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tasbex_app/models/duolar.dart';
 import 'models/base.dart';
-import 'models/kirish.dart';
+
 
 // TODO to'g'irlash kerak alohida klass kerak
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyApp(),
       routes: {
-        Kirish.id: (context) => Kirish(),
         DeterminatePage.id: (context) => DeterminatePage(),
       },
     ));
@@ -32,7 +32,7 @@ class _State extends State<MyApp> {
   }
   List<Widget> item = [
     DeterminatePage(),
-    Text("Bosh"),
+    Pray(),
     Text("Bosh"),
     Text("Bosh"),
   ];
@@ -63,7 +63,7 @@ class _State extends State<MyApp> {
         if (page != _currentPage) {
           setState(() {
             _currentPage = page;
-            pageController.animateToPage(page, duration: Duration(milliseconds: 500), curve: Curves.easeInOutCubic);
+            pageController.animateToPage(page, duration: Duration(milliseconds: 20), curve: Curves.easeInOutCubic);
           });
         }
       },
